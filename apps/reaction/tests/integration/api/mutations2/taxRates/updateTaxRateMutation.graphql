@@ -1,0 +1,35 @@
+mutation (
+  $country: String,
+  $postal: String,
+  $rate: Float!,
+  $region: String,
+  $shopId: ID!,
+  $sourcing: TaxSource,
+  $taxCode: String,
+  $taxRateId: ID!
+) {
+  updateTaxRate(input: {
+    country: $country,
+    postal: $postal,
+    rate: $rate,
+    region: $region,
+    shopId: $shopId,
+    sourcing: $sourcing,
+    taxCode: $taxCode,
+    taxRateId: $taxRateId
+  }) {
+    taxRate {
+      _id
+      country
+      postal
+      postal
+      rate
+      region
+      shop {
+        _id
+      }
+      sourcing
+      taxCode
+    }
+  }
+}

@@ -1,0 +1,33 @@
+mutation (
+  $country: String,
+  $postal: String,
+  $rate: Float!,
+  $region: String,
+  $shopId: ID!,
+  $sourcing: TaxSource,
+  $taxCode: String
+) {
+  createTaxRate(input: {
+    country: $country,
+    postal: $postal,
+    rate: $rate,
+    region: $region,
+    shopId: $shopId,
+    sourcing: $sourcing,
+    taxCode: $taxCode
+  }) {
+    taxRate {
+      _id
+      country
+      postal
+      postal
+      rate
+      region
+      shop {
+        _id
+      }
+      sourcing
+      taxCode
+    }
+  }
+}

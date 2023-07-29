@@ -1,0 +1,37 @@
+mutation($variantId: ID!, $shopId: ID!, $variant: ProductVariantInput!) {
+	updateProductVariant(input: {
+    variantId: $variantId
+    shopId: $shopId
+    variant: $variant
+  }) {
+    variant {
+      _id
+      attributeLabel
+      barcode
+      createdAt
+      height
+      index
+      isDeleted
+      isVisible
+      length
+      metafields {
+        key
+        value
+      }
+      minOrderQuantity
+      optionTitle
+      originCountry
+      shop {
+        _id
+      }
+      sku
+      title
+      updatedAt
+      weight
+      width
+      isTaxable
+      taxCode
+      taxDescription
+    }
+  }
+}

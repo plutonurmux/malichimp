@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+# Please Use Google Shell Style: https://google.github.io/styleguide/shell.xml
+
+# ---- Start unofficial bash strict mode boilerplate
+# http://redsymbol.net/articles/unofficial-bash-strict-mode/
+set -o errexit  # always exit on error
+set -o errtrace # trap errors in functions as well
+set -o pipefail # don't ignore exit codes when piping output
+set -o posix    # more strict failures in subshells
+# set -x          # enable debugging
+
+# ---- End unofficial bash strict mode boilerplate
+
+package_name=$1
+
+# validate input
+IFS='/'
+read -a pkgarr <<< "$1"
+org_name=${pkgarr[0]}
+package_name_without_org=${pkgarr[1]}
+if [ -z "$package_name_without_org" ] || [ -z "$org_name" ]; then
+  echo "ERROR: Incorrect input. Please check the format of the first argument. '@<org-name>/<api-plugin-name>'"
+  exit 0
+fi
+
+#check if the organization name is valid by cross referencing with node_modules
+is_package=$(find node_modules -type d -name $org_name)
+if [ -z "$is_package" ]; then
+  echo "$org_name does not exist"
+  exit 0
+fi
+
+
+IFS="$(printf "\n\t")"
+
+# Unlink the yalc dependency, remove the package drectory and npm install
+echo "Unlinking package from API..."
+docker-compose exec api sh -c "cd /usr/local/src/app && yalc remove ${package_name}"
+docker-compose exec api sh -c "rm -rf /usr/local/src/app/node_modules/${package_name} && npm i"
+docker-compose exec api sh -c  "cd /usr/local/src/app && yalc update"
+
+# Fool nodemon into thinking something has changed so that it restarts.
+# Touch first file found in /src with .js extension
+echo "Restarting API..."
+docker-compose exec api sh -c "touch -c $(ls ./src/*.js | head -n1)"

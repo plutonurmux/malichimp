@@ -1,0 +1,46 @@
+{
+  "name": "@reactioncommerce/api-plugin-simple-schema",
+  "description": "Simple Schema plugin for the Reaction API",
+  "version": "2.0.0",
+  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=14.18.1"
+  },
+  "homepage": "https://github.com/reactioncommerce/reaction",
+  "url": "https://github.com/reactioncommerce/reaction",
+  "email": "engineering@reactioncommerce.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reactioncommerce/reaction.git",
+    "directory": "packages/api-plugin-simple-schema"
+  },
+  "author": {
+    "name": "Reaction Commerce",
+    "email": "engineering@reactioncommerce.com",
+    "url": "https://reactioncommerce.com"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/reactioncommerce/reaction/issues"
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "@reactioncommerce/api-utils": "^2.0.0",
+    "@reactioncommerce/random": "~1.0.2",
+    "@reactioncommerce/db-version-check": "^1.0.0",
+    "simpl-schema": "^3.4.1"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:file": "jest --no-cache --watch --coverage=false"
+  },
+  "devDependencies": {
+    "@reactioncommerce/babel-remove-es-create-require": "~1.0.0",
+    "@reactioncommerce/data-factory": "~1.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
