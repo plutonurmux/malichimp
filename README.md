@@ -2,7 +2,6 @@
   Mailchimp Open Commerce (formerly Reaction Commerce)
 </h1>
 
-
 <h4 align="center">
   <a href="https://mailchimp.com/developer/open-commerce/">Open Commerce Website</a> |
   <a href="https://twitter.com/getreaction">Twitter</a> |
