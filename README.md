@@ -176,17 +176,3 @@ pnpm run start:dev
 2. Before merging PRs into `prerelease` branch, please make sure that all the changesets are added.
 3. Manually trigger `PRERELEASE` action to create `Version Packages (next)` PR. After merged, the changeset/action will bump up packages versions as `{next-version}-next.{number}`, update CHANGELOG files.
 4. Merge `Version Packages (next)` PR into `prerelease` branch, action will publish all the packages into npm.
-
-# Get involved
-## Contribute
-
-:star: If you like what you see, star us on GitHub.
-
-Find a bug, a typo, or something that’s not documented well? We’d love for you to [open an issue](https://github.com/reactioncommerce/reaction/issues) telling us what we can improve! This project uses [commitlint](https://commitlint.js.org/), please use their [commit message format](https://www.conventionalcommits.org/en/v1.0.0/#summary).
-
-We love your pull requests! Check out our [`Good First Issue`](https://github.com/reactioncommerce/reaction/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) and [`Help Wanted`](https://github.com/reactioncommerce/reaction/issues?q=label%3A%22help+wanted%22) tags for good issues to tackle.
-Check out our [contributors guide](CONTRIBUTING.md) for more information
-
-### License
-
-Reaction is [GNU GPLv3 Licensed](./LICENSE.md)
